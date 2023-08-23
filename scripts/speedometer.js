@@ -4,8 +4,8 @@ const stopButton = document.querySelector('#stop')
 
 startButton.addEventListener('click', ()=>{
     function handleSuccess(position){
-        speedElement.innerHTML = position.coords.speed
-        console.log(speedElement)
+        console.log(position)
+        speedElement.innerHTML = position.coords.speed?(position.coords.speed * 3.6).toFixed(1):0
     }
     
     function handleError(error){
