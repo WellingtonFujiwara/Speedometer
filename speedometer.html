@@ -16,6 +16,8 @@
       integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
       crossorigin="anonymous"
     ></script>
+
+    <script src="./scripts/speedometer.js" defer></script>
   </head>
   <body>
     <div class="vh-100 d-flex flex-column justify-content-between">
@@ -28,13 +30,13 @@
       <div
         class="d-flex flex-column flex-fill justify-content-center align-items-center"
       >
-        <span style="font-size: 120px; font-weight: 700">0</span>
+        <span style="font-size: 120px; font-weight: 700" id="speed">0</span>
         <span style="font-weight: 700">km/h</span>
       </div>
 
       <div class="m-2 d-grid">
-        <button class="btn btn-success">Start</button>
-        <button class="btn btn-danger d-none">Stop</button>
+        <button class="btn btn-success" id="start">Start</button>
+        <button class="btn btn-danger d-none" id="stop">Stop</button>
       </div>
     </div>
   </body>
