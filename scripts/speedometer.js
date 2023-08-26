@@ -2,9 +2,12 @@ const speedElement = document.querySelector('#speed')
 const startButton = document.querySelector('#start')
 const stopButton = document.querySelector('#stop')
 
+let id;
+
 startButton.addEventListener('click', ()=>{
+    if (id) return
+
     function handleSuccess(position){
-        console.log(position)
         speedElement.innerHTML = position.coords.speed?(position.coords.speed * 3.6).toFixed(1):0
     }
     
@@ -14,7 +17,7 @@ startButton.addEventListener('click', ()=>{
 
     const options = { enableHighAccuracy: true }
 
-    navigator.geolocation.watchPosition(handleSuccess, handleError, options)
+    id = navigator.geolocation.watchPosition(handleSuccess, handleError, options)
 
     startButton.classList.add('d-none')
     stopButton.classList.remove('d-none')
@@ -22,10 +25,14 @@ startButton.addEventListener('click', ()=>{
 })
 
 stopButton.addEventListener('click', ()=>{
+    if (!id) return
+
+    navigator.geolocation.clearWatch(id)
+    id = null
+
     startButton.classList.remove('d-none')
     stopButton.classList.add('d-none')
 })
 
-/* capturar dados da api Geolocation
-criar função start e stop */
+
 
