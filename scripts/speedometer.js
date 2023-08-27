@@ -10,7 +10,6 @@ startButton.addEventListener('click', ()=>{
 
     function handleSuccess(position){
         addPosition(currentRide, position)
-        console.log(position)
 
         speedElement.innerHTML = position.coords.speed?(position.coords.speed * 3.6).toFixed(1):0
     }
