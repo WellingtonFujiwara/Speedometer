@@ -44,6 +44,6 @@ function getMaxSpeed(positions) {
         }
     })
     
-    return maxSpeed
+    return (maxSpeed * 3.6).toFixed(1)
 }
 
