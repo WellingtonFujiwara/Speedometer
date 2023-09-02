@@ -5,7 +5,7 @@ allRides.forEach(async ([id, value])=> {
     const ride = JSON.parse(value)
     ride.id = id
     const firstPosition = ride.data[0]
-    /* console.log(firstPosition) */
+    
     
     const location = await getLocationData(firstPosition.latitude, firstPosition.longitude)
 
@@ -19,10 +19,18 @@ allRides.forEach(async ([id, value])=> {
     cityDiv.innerText = `${location.city} - ${location.countryCode}`
 
     const maxSpeedDiv = document.createElement('div')
-    maxSpeedDiv.innerText = getMaxSpeed(ride.data)
+    maxSpeedDiv.innerText = `Max speed: ${getMaxSpeed(ride.data)}`
 
     const distanceDiv = document.createElement('div')
-    distanceDiv.innerText = getDistance(ride.data)
+    distanceDiv.innerText = `Distance: ${getDistance(ride.data)}`
+
+    const durationDiv = document.createElement('div')
+    durationDiv.innerText = `Duration: ${getDuration(ride)}`
+
+    const dateDiv = document.createElement('div')
+    dateDiv.innerText = getStartDate(ride)
+
+    console.log(ride)
     
     
     
@@ -30,6 +38,8 @@ allRides.forEach(async ([id, value])=> {
     itemElement.appendChild(cityDiv)
     itemElement.appendChild(maxSpeedDiv)
     itemElement.appendChild(distanceDiv)
+    itemElement.appendChild(durationDiv)
+    itemElement.appendChild(dateDiv)
     
 })
 
@@ -88,4 +98,30 @@ function getDistance(positions) {
 
     return totalDistance.toFixed(2)
 }
+
+function getDuration(ride) {
+    function format(number) {
+       return String(number.toFixed(0)).padStart(2, '0')
+    }
+    const duration = (ride.stopTime - ride.startTime) / 1000  
+    
+    const minutes = Math.trunc(duration / 60)
+    const seconds = Math.trunc(duration % 60)
+
+    return `${format(minutes)}:${format(seconds)}` 
+}
+
+function getStartDate(ride) {
+    const date = new Date(ride.startTime)
+
+    const hour = date.toLocaleString('en-US', { hour: '2-digit', hour12: false})
+    const minute = date.toLocaleString('en-US', { minute: 'numeric'})
+
+    const month = date.toLocaleString('en-US', { month: 'long'})
+    const day = date.toLocaleString('en-US', { day: 'numeric'})
+    const year = date.toLocaleString('en-US', { year: 'numeric'})
+
+    return `${hour}:${minute} - ${month} ${day}, ${year}`
+}
+
 
