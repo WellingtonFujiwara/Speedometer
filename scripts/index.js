@@ -13,7 +13,7 @@ allRides.forEach(async ([id, value])=> {
 
     const itemElement = document.createElement('li')
     itemElement.id = ride.id
-    itemElement.className = 'd-flex'
+    itemElement.className = 'd-flex align-items-center gap-3 m-2'
 
     const mapDiv = document.createElement('div')
     mapDiv.style = 'width:100px; height:100px'
@@ -23,9 +23,11 @@ allRides.forEach(async ([id, value])=> {
     
     const cityDiv = document.createElement('div')
     cityDiv.innerText = `${location.city} - ${location.countryCode}`
+    cityDiv.style = 'font-weight: bold'
     
     const maxSpeedDiv = document.createElement('div')
     maxSpeedDiv.innerText = `Max speed: ${getMaxSpeed(ride.data)}`
+    maxSpeedDiv.className = 'h5 text-primary'
     
     const distanceDiv = document.createElement('div')
     distanceDiv.innerText = `Distance: ${getDistance(ride.data)}`
@@ -35,6 +37,7 @@ allRides.forEach(async ([id, value])=> {
     
     const dateDiv = document.createElement('div')
     dateDiv.innerText = getStartDate(ride)
+    dateDiv.className = 'text-secondary'
     
     console.log(ride)
     
