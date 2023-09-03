@@ -13,33 +13,42 @@ allRides.forEach(async ([id, value])=> {
 
     const itemElement = document.createElement('li')
     itemElement.id = ride.id
+    itemElement.className = 'd-flex'
+
+    const mapDiv = document.createElement('div')
+    mapDiv.style = 'width:100px; height:100px'
+    mapDiv.className = 'bg-secondary rounded-3'
     
+    const dataDiv = document.createElement('div')
     
     const cityDiv = document.createElement('div')
     cityDiv.innerText = `${location.city} - ${location.countryCode}`
-
+    
     const maxSpeedDiv = document.createElement('div')
     maxSpeedDiv.innerText = `Max speed: ${getMaxSpeed(ride.data)}`
-
+    
     const distanceDiv = document.createElement('div')
     distanceDiv.innerText = `Distance: ${getDistance(ride.data)}`
-
+    
     const durationDiv = document.createElement('div')
     durationDiv.innerText = `Duration: ${getDuration(ride)}`
-
+    
     const dateDiv = document.createElement('div')
     dateDiv.innerText = getStartDate(ride)
-
+    
     console.log(ride)
     
     
     
     ridelistElement.appendChild(itemElement)
-    itemElement.appendChild(cityDiv)
-    itemElement.appendChild(maxSpeedDiv)
-    itemElement.appendChild(distanceDiv)
-    itemElement.appendChild(durationDiv)
-    itemElement.appendChild(dateDiv)
+    itemElement.appendChild(mapDiv)
+    itemElement.appendChild(dataDiv)
+
+    dataDiv.appendChild(cityDiv)
+    dataDiv.appendChild(maxSpeedDiv)
+    dataDiv.appendChild(distanceDiv)
+    dataDiv.appendChild(durationDiv)
+    dataDiv.appendChild(dateDiv)
     
 })
 
