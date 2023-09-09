@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Speedometer</title>
 
     <link
@@ -16,8 +16,26 @@
       integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
       crossorigin="anonymous"
     ></script>
-</head>
-<body>
-    
-</body>
+
+    <script src="./scripts/storage.js" defer></script>
+    <script src="./scripts/data-manager.js" defer></script>
+    <script src="./scripts/details.js" defer></script>
+  </head>
+  <body>
+    <div class="containner">
+      <nav class="m-2 navbar justify-content-end">
+        <a
+          href="/index.html"
+          class="btn btn-close btn-outline-secondary border border-2"
+        ></a>
+      </nav>
+
+      <div id="map"></div>
+      <div id="data"></div>
+
+      <div class="m-2 d-grid">
+        <button class="btn btn-danger">Delete</button>
+      </div>
+    </div>
+  </body>
 </html>
