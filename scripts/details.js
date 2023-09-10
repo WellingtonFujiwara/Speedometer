@@ -9,7 +9,11 @@ document.addEventListener('DOMContentLoaded', async()=>{
 
     /* console.log(ride) */
 
-    const itemElement = document.createElement('li')
+    //const itemElement = document.createElement('li')
+    const mapElement = document.createElement('div')
+    mapElement.style = 'height: 300px;'
+    mapElement.className = 'bg-secondary rounded-4 m-auto'
+
     const dataDiv = document.createElement('div')
         
     const cityDiv = document.createElement('div')
@@ -30,7 +34,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
     dateDiv.innerText = getStartDate(ride)
     dateDiv.className = 'text-secondary'
 
-    itemElement.appendChild(dataDiv)
+    //itemElement.appendChild(dataDiv)
 
     dataDiv.appendChild(cityDiv)
     dataDiv.appendChild(maxSpeedDiv)
@@ -38,6 +42,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
     dataDiv.appendChild(durationDiv)
     dataDiv.appendChild(dateDiv)
 
+    document.querySelector('#map').appendChild(mapElement)
     document.querySelector('#data').appendChild(dataDiv)
 
 })
