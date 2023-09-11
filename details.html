@@ -21,21 +21,28 @@
     <script src="./scripts/data-manager.js" defer></script>
     <script src="./scripts/details.js" defer></script>
   </head>
-  <body>
-    <div class="containner">
+  <body style="background-color: aqua;">
+    
+    <div class="container d-flex flex-column">
       <nav class="m-2 navbar justify-content-end">
         <a
           href="/index.html"
           class="btn btn-close btn-outline-secondary border border-2"
         ></a>
       </nav>
-
+      
       <div id="map"></div>
-      <div id="data"></div>
 
-      <div class="m-2 d-grid">
-        <button class="btn btn-danger">Delete</button>
+      <div class="d-flex flex-column justify-content-between">
+        <div id="data"></div>
+        
+        <div class="m-2 d-flex">
+          <button class="btn btn-danger flex-fill ">Delete</button>
+        </div>
       </div>
     </div>
+      
   </body>
 </html>
+
+//15:49
