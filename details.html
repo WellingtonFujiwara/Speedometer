@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,28 +21,24 @@
     <script src="./scripts/data-manager.js" defer></script>
     <script src="./scripts/details.js" defer></script>
   </head>
-  <body style="background-color: aqua;">
-    
-    <div class="container d-flex flex-column">
+  <body class="h-100">
+    <div class="container d-flex flex-column h-100">
       <nav class="m-2 navbar justify-content-end">
         <a
           href="/index.html"
           class="btn btn-close btn-outline-secondary border border-2"
         ></a>
       </nav>
-      
+
       <div id="map"></div>
 
-      <div class="d-flex flex-column justify-content-between">
+      <div class="d-flex flex-column justify-content-between flex-fill mb-2 mt-3">
         <div id="data"></div>
-        
-        <div class="m-2 d-flex">
-          <button class="btn btn-danger flex-fill ">Delete</button>
+
+        <div class="d-grid">
+          <button class="btn btn-danger">Delete</button>
         </div>
       </div>
     </div>
-      
   </body>
 </html>
-
-//15:49
