@@ -45,4 +45,21 @@ document.addEventListener('DOMContentLoaded', async()=>{
     document.querySelector('#map').appendChild(mapElement)
     document.querySelector('#data').appendChild(dataDiv)
 
+
+    //mapa usando api leaflet
+    const map = L.map('map').setView([firstPosition.latitude, firstPosition.longitude], 13);
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        minZoom: 12,
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    const positionArray = ride.data.map((position => {
+        return [position.latitude, position.longitude]
+    }))
+
+    const polyline = L.polyline(positionArray, { color: "#F00" }).addTo(map)
+    map.fitBounds(polyline.getBounds())
 })
+
