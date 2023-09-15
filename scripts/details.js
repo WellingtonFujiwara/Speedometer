@@ -59,9 +59,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
         return [position.latitude, position.longitude]
     }))
 
-    /* const polyline = L.polyline(positionArray, { color: "#F00" }).addTo(map)
-    map.fitBounds(polyline.getBounds()) */
-
-    const marker = L.marker(positionArray).addTo(map);
+    const polyline = L.polyline(positionArray, { color: "#F00" }).addTo(map)
+    map.fitBounds(polyline.getBounds())
 })
 
