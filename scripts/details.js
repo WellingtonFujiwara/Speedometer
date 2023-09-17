@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
     //const itemElement = document.createElement('li')
     const mapElement = document.createElement('div')
     mapElement.style = 'height: 300px;'
-    mapElement.className = 'bg-secondary rounded-4 m-auto'
+    mapElement.className = 'm-auto'
 
     const dataDiv = document.createElement('div')
         
@@ -45,6 +45,12 @@ document.addEventListener('DOMContentLoaded', async()=>{
     document.querySelector('#map').appendChild(mapElement)
     document.querySelector('#data').appendChild(dataDiv)
 
+    const deleteButton = document.querySelector('#delete')
+
+    deleteButton.addEventListener('click', () => {
+        deleteRide(rideID)
+        window.location.replace(`/`)
+    })
 
     //mapa usando api leaflet
     const map = L.map('map').setView([firstPosition.latitude, firstPosition.longitude], 13);

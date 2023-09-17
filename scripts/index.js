@@ -14,9 +14,11 @@ allRides.forEach(async ([id, value])=> {
     
     const location = await getLocationData(firstPosition.latitude, firstPosition.longitude)
 
-    const mapDiv = document.createElement('div')
-    mapDiv.style = 'width:100px; height:100px'
-    mapDiv.className = 'bg-secondary rounded-3'
+    const mapID = `map${ride.id}`
+    const mapElement = document.createElement('div')
+    mapElement.id = mapID
+    mapElement.style = 'width:100px; height:100px'
+    mapElement.className = 'bg-secondary rounded-3'
     
     const dataDiv = document.createElement('div')
     
@@ -38,7 +40,7 @@ allRides.forEach(async ([id, value])=> {
     dateDiv.innerText = getStartDate(ride)
     dateDiv.className = 'text-secondary'
     
-    itemElement.appendChild(mapDiv)
+    itemElement.appendChild(mapElement)
     itemElement.appendChild(dataDiv)
 
     dataDiv.appendChild(cityDiv)
@@ -46,6 +48,21 @@ allRides.forEach(async ([id, value])=> {
     dataDiv.appendChild(distanceDiv)
     dataDiv.appendChild(durationDiv)
     dataDiv.appendChild(dateDiv)
+
+    //mapa usando api leaflet
+    const map = L.map(mapID, {
+        zoomControl: false,
+        attributionControl: false,
+        dragging: false,
+        scrollWheelZoom: false
+    }).setView([firstPosition.latitude, firstPosition.longitude], 13);
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        minZoom: 12,
+        maxZoom: 19,
+    }).addTo(map);
+
+    L.marker([firstPosition.latitude, firstPosition.longitude]).addTo(map)
 
     itemElement.addEventListener('click', () => {
         window.location.replace(`/details.html?id=${ride.id}`)

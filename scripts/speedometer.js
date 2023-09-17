@@ -39,6 +39,8 @@ stopButton.addEventListener('click', ()=>{
 
     startButton.classList.remove('d-none')
     stopButton.classList.add('d-none')
+
+    window.location.replace(`/`)
 })
 
 
