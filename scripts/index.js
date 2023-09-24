@@ -31,7 +31,7 @@ allRides.forEach(async ([id, value])=> {
     maxSpeedDiv.className = 'h5 text-primary'
     
     const distanceDiv = document.createElement('div')
-    distanceDiv.innerText = `Distance: ${getDistance(ride.data)}`
+    distanceDiv.innerText = `Distance: ${getDistance(ride.data)} km`
     
     const durationDiv = document.createElement('div')
     durationDiv.innerText = `Duration: ${getDuration(ride)}`
