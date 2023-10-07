@@ -1,0 +1,12 @@
+:root .dark-theme{
+    --body: #4B4B4B;
+    --text-body: #fff;
+}
+
+.body-theme{
+    background-color: var(--body);
+}
+
+span {
+    color: var(--text-body);
+}
