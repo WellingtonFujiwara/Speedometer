@@ -20,7 +20,7 @@ function getDistance(positions) {
     const earthRadiusKm = 6371
     let totalDistance = 0
 
-    for (let i = 0; i > positions.length - 1 ; i++) {
+    for (let i = 0; i < positions.length - 1 ; i++) {
         const p1 = {
             latitude: positions[i].latitude,
             longitude: positions[i].longitude
